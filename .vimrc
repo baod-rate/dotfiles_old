@@ -1,3 +1,21 @@
+"Plugins
+let firstrun=0
+if !filereadable(expand("~/.vim/autoload/plug.vim"))
+
+    let firstrun=1
+    silent !mkdir -p ~/.vim/{autoload,undo,backups}
+    silent !curl -fLo ~/.vim/autoload/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+call plug#begin('~/.vim/plugged')
+
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
+if 1 == firstrun
+    :PlugInstall
+endif
+
 " indentation options
 set tabstop=4
 set shiftwidth=4
