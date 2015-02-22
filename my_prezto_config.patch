@@ -1,0 +1,77 @@
+From ac1405a40a7fc032d99b55d3886fd52c950f2abc Mon Sep 17 00:00:00 2001
+From: Bao Trinh <github@baodtrinh.com>
+Date: Tue, 17 Feb 2015 23:00:54 -0600
+Subject: [PATCH] some configs
+
+---
+ runcoms/zpreztorc | 8 +++++---
+ runcoms/zprofile  | 6 +++---
+ 2 files changed, 8 insertions(+), 6 deletions(-)
+
+diff --git a/runcoms/zpreztorc b/runcoms/zpreztorc
+index 4778944..5d8f8c7 100644
+--- a/runcoms/zpreztorc
++++ b/runcoms/zpreztorc
+@@ -32,6 +32,8 @@ zstyle ':prezto:load' pmodule \
+   'spectrum' \
+   'utility' \
+   'completion' \
++  'git' \
++  'python' \
+   'prompt'
+ 
+ #
+@@ -39,7 +41,7 @@ zstyle ':prezto:load' pmodule \
+ #
+ 
+ # Set the key mapping style to 'emacs' or 'vi'.
+-zstyle ':prezto:module:editor' key-bindings 'emacs'
++zstyle ':prezto:module:editor' key-bindings 'vi'
+ 
+ # Auto convert .... to ../..
+ # zstyle ':prezto:module:editor' dot-expansion 'yes'
+@@ -76,7 +78,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
+ #
+ 
+ # Set the Pacman frontend.
+-# zstyle ':prezto:module:pacman' frontend 'yaourt'
++zstyle ':prezto:module:pacman' frontend 'pacaur'
+ 
+ #
+ # Prompt
+@@ -85,7 +87,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
+ # Set the prompt theme to load.
+ # Setting it to 'random' loads a random theme.
+ # Auto set to 'off' on dumb terminals.
+-zstyle ':prezto:module:prompt' theme 'sorin'
++zstyle ':prezto:module:prompt' theme 'giddie'
+ 
+ #
+ # Ruby
+diff --git a/runcoms/zprofile b/runcoms/zprofile
+index 4daeb13..c82d25b 100644
+--- a/runcoms/zprofile
++++ b/runcoms/zprofile
+@@ -17,8 +17,8 @@ fi
+ # Editors
+ #
+ 
+-export EDITOR='nano'
+-export VISUAL='nano'
++export EDITOR='vi'
++export VISUAL='vim'
+ export PAGER='less'
+ 
+ #
+@@ -67,7 +67,7 @@ fi
+ #
+ 
+ if [[ ! -d "$TMPDIR" ]]; then
+-  export TMPDIR="/tmp/$LOGNAME"
++  export TMPDIR="/tmp/$USER"
+   mkdir -p -m 700 "$TMPDIR"
+ fi
+ 
+-- 
+2.3.0
+

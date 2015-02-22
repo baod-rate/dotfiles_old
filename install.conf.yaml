@@ -1,0 +1,31 @@
+- clean: ['~']
+
+- shell:
+  - [git submodule update --init --recursive --remote, Installing/updating submodules]
+
+- link:
+    ~/.zprezto:
+        force: true
+        path: prezto/
+    ~/.vim:
+      force: true
+      path: vim/
+    ~/.vimrc:
+      force: true
+      path: loosies/vimrc
+    ~/.nvim:
+      force: true
+      path: vim/
+    ~/.nvimrc:
+      force: true
+      path: loosies/vimrc
+    ~/.Xresources:
+      force: true
+      path: loosies/Xresources
+    ~/.config/awesome:
+      create: true
+      force: true
+      path: config/awesome/
+    ~/.xbindkeysrc:
+      force: true
+      path: loosies/xbindkeysrc

@@ -22,8 +22,11 @@ endif
 " =======
 call plug#begin('~/.vim/plugged')
 
-" syntax
-" Plug 'benekastah/neomake'
+" neovim exclusive
+if has('nvim')
+  Plug 'benekastah/neomake'
+  Plug 'Valloric/YouCompleteMe'
+endif
 
 " interface
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -32,6 +35,13 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
 Plug 'w0ng/vim-hybrid'
+
+" tools
+Plug 'terryma/vim-multiple-cursors'
+Plug 'kien/ctrlp.vim'
+
+" code
+Plug 'sven-strothoff/vim-clang_doxygen'
 
 call plug#end()
 
@@ -49,13 +59,21 @@ endif
 filetype plugin indent on
 syntax on
 
+" ======
+" neovim
+" ======
+if has('nvim')
+  autocmd! BufWritePost *.c++,*.c,*.cpp,*.py,*.js Neomake
+endif
+
 " ===========
 " indentation
 " ===========
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set smarttab
+set backspace=indent,eol,start
 
 " =========
 " interface
@@ -69,7 +87,7 @@ set background=dark
 " colorscheme seoul256
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
-" set mouse=a
+set mouse=a
 
 " ======
 " search
@@ -80,14 +98,26 @@ set incsearch       " jump to search result while typing
 set ignorecase
 set smartcase
 
-" ==========
+" =========
 " long-line 
-" ==========
+" =========
 set autoindent
 set textwidth=79
 set formatoptions=c,q,r
 
 " ======
-" syntax
+" ctrl-p
 " ======
-" autocmd! BufWritePost *.c++,*.c,*.cpp,*.py,*.js Neomake
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" 'c' - the directory of the current file.
+" 'r' - the nearest ancestor that contains one of these directories or files:
+"       .git .hg .svn .bzr _darcs
+" 'a' - like c, but only if the current working directory outside of CtrlP is
+"       not a direct ancestor of the directory of the current file.
+let g:ctrlp_working_path_mode = 'ra'
+
+" =============
+" youcompleteme
+" =============
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"

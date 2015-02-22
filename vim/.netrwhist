@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/qubidt/dotfiles/dotbot'
+let g:netrw_dirhist_2='/home/qubidt/dotfiles/prezto'
+let g:netrw_dirhist_3='/home/qubidt/cs371p-voting'
+let g:netrw_dirhist_4='/home/qubidt/.xbindkeys_config'
+let g:netrw_dirhist_5='/home/qubidt/.xbindkeys_config/speed_c'
+let g:netrw_dirhist_6='/home/qubidt/.xbindkeys_config'
+let g:netrw_dirhist_7='/home/qubidt'
