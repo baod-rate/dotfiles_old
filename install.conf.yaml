@@ -22,6 +22,10 @@
     ~/.Xresources:
       force: true
       path: loosies/Xresources
+    ~/.config/termite:
+      create: true
+      force: true
+      path: config/termite/
     ~/.config/awesome:
       create: true
       force: true
